@@ -24,9 +24,9 @@ function reverse2(str) {
   return str.split("").reverse().join("");
 }
 
-const reverse3 = (str) => str.split("").reverse().join("");
+const reverse3 = str => str.split("").reverse().join("");
 
-const reverse4 = (str) => [...str].reverse().join("");
+const reverse4 = str => [...str].reverse().join("");
 
 reverse("Hi I am Saurtrav");
 reverse2("Hi I am Sauravio");
