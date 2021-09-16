@@ -1,5 +1,4 @@
-// https://leetcode.com/problems/two-sum/
-
+//* https://leetcode.com/problems/two-sum/
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
 // You can return the answer in any order.
@@ -23,9 +22,9 @@
 // -109 <= target <= 109
 // Only one valid answer exists.
 
-// Brute force solution (2 Pointer approach):
-// Time complexity: O(n^2)
-// Space complexity: O(1)
+//* Brute force solution (2 Pointer approach):
+//* Time complexity: O(n^2)
+//* Space complexity: O(1)
 
 const twoSum = function (nums, target) {
   for (let p1 = 0; p1 < nums.length; p1++) {
@@ -39,9 +38,9 @@ const twoSum = function (nums, target) {
   return null;
 };
 
-// Optimised solution: Using HashMap(Object in JavaScript)
-// Time Complexity: O(n)
-// Space Complexity: O(n)
+//* Optimised solution: Using HashMap(Object in JavaScript)
+//* Time Complexity: O(n)
+//* Space Complexity: O(n)
 
 const twoSum = function (nums, target) {
   const numsMap = {};
@@ -50,6 +49,26 @@ const twoSum = function (nums, target) {
     const currentMapVal = numsMap[numsVal];
 
     if (currentMapVal >= 0) {
+      return [currentMapVal, p];
+    } else {
+      const numToFind = target - numsVal;
+      numsMap[numToFind] = p;
+    }
+  }
+  return null;
+};
+
+//* Optimised solution: Using HashMap(Object in JavaScript)
+//* Time Complexity: O(n)
+//* Space Complexity: O(n)
+
+const twoSum = function (nums, target) {
+  const numsMap = {};
+  for (let p = 0; p < nums.length; p++) {
+    const numsVal = nums[p];
+    const currentMapVal = numsMap[numsVal];
+
+    if (currentMapVal !== undefined) {
       return [currentMapVal, p];
     } else {
       const numToFind = target - numsVal;
