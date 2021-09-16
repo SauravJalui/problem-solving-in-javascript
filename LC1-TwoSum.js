@@ -24,7 +24,6 @@
 // Only one valid answer exists.
 
 // Brute force solution (2 Pointer approach):
-
 // Time complexity: O(n^2)
 // Space complexity: O(1)
 
@@ -35,6 +34,26 @@ const twoSum = function (nums, target) {
       if (numToFind === nums[p2]) {
         return [p1, p2];
       }
+    }
+  }
+  return null;
+};
+
+// Optimised solution: Using HashMap(Object in JavaScript)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+const twoSum = function (nums, target) {
+  const numsMap = {};
+  for (let p = 0; p < nums.length; p++) {
+    const numsVal = nums[p];
+    const currentMapVal = numsMap[numsVal];
+
+    if (currentMapVal >= 0) {
+      return [currentMapVal, p];
+    } else {
+      const numToFind = target - numsVal;
+      numsMap[numToFind] = p;
     }
   }
   return null;
