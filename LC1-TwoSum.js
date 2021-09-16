@@ -77,3 +77,23 @@ const twoSum = function (nums, target) {
   }
   return null;
 };
+
+//* Optimised solution: Using HashMap(Object in JavaScript)
+//* Time Complexity: O(n)
+//* Space Complexity: O(n)
+
+const twoSum = (nums, target) => {
+  const numsMap = {};
+
+  for (let p = 0; p < nums.length; p++) {
+    const numsVal = nums[p];
+    const numToFind = target - numsVal;
+
+    if (numsMap[numToFind] !== undefined) {
+      return [numsMap[numToFind], p];
+    } else {
+      numsMap[numsVal] = p;
+    }
+  }
+  return null;
+};
